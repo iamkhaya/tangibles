@@ -1,235 +1,260 @@
-{% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'printona/bootstrap.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'printona/landing-page.css' %}" />
-
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+  <title>Stylish Portfolio - Start Bootstrap Template</title>
+  {% load static %}
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'printona/bootstrap.css' %}" />
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" type="text/css" href="{% static 'printona/font-awesome.css' %}" />
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="{% static 'printona/simple-line-icons.css' %}" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/landing-pagelanding.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'printona/stylish-portfolio.css' %}" />
 
-  </head>
 
-  <body>
+</head>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light static-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
-        <a class="btn btn-primary" href="#">Sign In</a>
-      </div>
-    </nav>
+<body id="page-top">
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+      <i class="fa fa-bars"></i>
+    </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#page-top">Home</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#about">About</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#services">Services</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- Masthead -->
-    <header class="masthead text-white text-center">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <h1 class="mb-5">Build a landing page for your business or project and generate more leads!</h1>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-                </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-                </div>
-              </div>
-            </form>
-          </div>
+  <!-- Header -->
+  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">Printona Tangibles</h1>
+      <h3 class="mb-5">
+          <em>We print your photos and mail them to you.</em>
+        </h3>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Get Started</a>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+  <!-- About -->
+  <section class="content-section bg-light" id="about">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-lg-12 mx-auto">
+          <h3>We do one thing and we do it well. </h3>
+          <h1>Print your photos and mail them to you!</h1>
+          <p class="lead mb-5">No Sign up. No Hidden Costs. No Bullshit.</p>
+          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">What We Offer</a>
         </div>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <!-- Icons Grid -->
-    <section class="features-icons bg-light text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-screen-desktop m-auto text-primary"></i>
-              </div>
-              <h3>Fully Responsive</h3>
-              <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-layers m-auto text-primary"></i>
-              </div>
-              <h3>Bootstrap 4 Ready</h3>
-              <p class="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-check m-auto text-primary"></i>
-              </div>
-              <h3>Easy to Use</h3>
-              <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-            </div>
-          </div>
+  <!-- Services -->
+  <section class="content-section bg-primary text-white text-center" id="services">
+    <div class="container">
+      <div class="content-section-heading">
+        <h3 class="text-secondary mb-0">Services</h3>
+        <h2 class="mb-5">How it works</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="icon-screen-smartphone"></i>
+            </span>
+          <h4>
+              <strong>Upload</strong>
+            </h4>
+          <p class="text-faded mb-0">Upload your photos on the site!</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="icon-pencil"></i>
+            </span>
+          <h4>
+              <strong>Get Quote</strong>
+            </h4>
+          <p class="text-faded mb-0">Quote for size, quantity and quality.</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="icon-like"></i>
+            </span>
+          <h4>
+              <strong>Pay</strong>
+            </h4>
+          <p class="text-faded mb-0">Pay for the service and postage</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="icon-mustache"></i>
+            </span>
+          <h4>
+              <strong>Get Photos</strong>
+            </h4>
+          <p class="text-faded mb-0">Receive your piks in the mail.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Image Showcases -->
-    <section class="showcase">
-      <div class="container-fluid p-0">
-        <div class="row no-gutters">
+  <!-- Callout -->
+  <section class="callout">
+    <div class="container text-center">
+      <h2 class="mx-auto mb-5">Welcome to
+          <em>your</em>
+          next website!</h2>
+      <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Download Now!</a>
+    </div>
+  </section>
 
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-showcase-1.jpg');"></div>
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-            <h2>Fully Responsive Design</h2>
-            <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
-          </div>
+  <!-- Portfolio -->
+  <section class="content-section" id="portfolio">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Portfolio</h3>
+        <h2 class="mb-5">Recent Projects</h2>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>Stationary</h2>
+                  <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="{% static 'printona/portfolio-1.jpg' %}" alt="">
+            </a>
+            </a>
         </div>
-        <div class="row no-gutters">
-          <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-2.jpg');"></div>
-          <div class="col-lg-6 my-auto showcase-text">
-            <h2>Updated For Bootstrap 4</h2>
-            <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
-          </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>Ice Cream</h2>
+                  <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="{% static 'printona/portfolio-2.jpg' %}" alt="">
+            </a>
+            </a>
         </div>
-        <div class="row no-gutters">
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-showcase-3.jpg');"></div>
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-            <h2>Easy to Use &amp; Customize</h2>
-            <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
-          </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>Strawberries</h2>
+                  <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="{% static 'printona/portfolio-3.jpg' %}" alt="">
+            </a>
+            </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>Workspace</h2>
+                  <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="{% static 'printona/portfolio-4.jpg' %}" alt="">
+            </a>
+            </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials text-center bg-light">
-      <div class="container">
-        <h2 class="mb-5">What people are saying...</h2>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
-              <h5>Margaret E.</h5>
-              <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-2.jpg" alt="">
-              <h5>Fred S.</h5>
-              <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-3.jpg" alt="">
-              <h5>Sarah	W.</h5>
-              <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Call to Action -->
+  <section class="content-section bg-primary text-white">
+    <div class="container text-center">
+      <h2 class="mb-4">The buttons below are impossible to resist...</h2>
+      <a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a>
+      <a href="#" class="btn btn-xl btn-dark">Look at Me!</a>
+    </div>
+  </section>
 
-    <!-- Call to Action -->
-    <section class="call-to-action text-white text-center">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-                </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Map -->
+  <section id="contact" class="map">
+    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+    <br/>
+    <small>
+        <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+      </small>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-            <ul class="list-inline mb-2">
-              <li class="list-inline-item">
-                <a href="#">About</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Contact</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-            </ul>
-            <p class="text-muted small mb-4 mb-lg-0">&copy; Start Bootstrap 2017. All Rights Reserved.</p>
-          </div>
-          <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item mr-3">
-                <a href="#">
-                  <i class="fa fa-facebook fa-2x fa-fw"></i>
-                </a>
-              </li>
-              <li class="list-inline-item mr-3">
-                <a href="#">
-                  <i class="fa fa-twitter fa-2x fa-fw"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-instagram fa-2x fa-fw"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="#">
+              <i class="icon-social-facebook"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="#">
+              <i class="icon-social-twitter"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="#">
+              <i class="icon-social-github"></i>
+            </a>
+        </li>
+      </ul>
+      <p class="text-muted small mb-0">Copyright &copy; Your Website 2017</p>
+    </div>
+  </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
 
-  </body>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'printona/jquery.min.js' %}"></script>
+  <script src="{% static 'printona/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'printona/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'printona/stylish-portfolio.js' %}"></script>
+
+
+</body>
 
 </html>
