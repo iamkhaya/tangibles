@@ -137,42 +137,48 @@
 
 
       <!--start form-->
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="form-group">
-            <input type="file" class="form-control" id="Picture" name="Picture[]" value="">
-          </div>
-        </div>
 
-        <div class="col-sm-4 nopadding">
-          <div class="form-group">
-            <input type="number" class="form-control" id="Major" name="Major[]" value="" placeholder="Quantity">
-          </div>
-        </div>
-        <div class="col-sm-4 nopadding">
-          <select class="custom-select" id="inputGroupSelect01">
+      <form action="{% url 'quote' %}" method="post">
+        {% csrf_token %}
+        <div id="upload_row">
+          <div class="row" id="actual">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <input type="file" class="form-control" id="Upload" name="Upload[]" value="">
+              </div>
+            </div>
+
+            <div class="col-sm-4 nopadding">
+              <div class="form-group">
+                <input type="number" class="form-control" id="Quantity" name="Quantity[]" value="" placeholder="Quantity">
+              </div>
+            </div>
+            <div class="col-sm-4 nopadding">
+              <select class="custom-select" id="inputGroupSelect01"  name="Sizes[]">
              <option selected>Photo Size (mm)</option>
-             <option value="1">102 x 152</option>
-             <option value="2">127 x 178</option>
-             <option value="3">152 x 203</option>
-             <option value="1">203 x 254</option>
-             <option value="2">406 x 508</option>
-             <option value="3">508 x 610</option>
+             {% for item in price_list.all %}
+                <option value="{{ item.id }}">{{ item.length }} x {{ item.width }}</option>
+             {% endfor %}
            </select>
-        </div>
-      </div>
-      <div id='education_fields'> </div>
+            </div>
 
-      <div class="row">
-        <div class="col-sm-2">
-          <button type="button" class="btn btn-success" onclick="education_fields();"> Add another picture</button>
-        </div>
-        <div class="col-sm-1 nopadding">
-          <div class="form-group">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Get Quotation</button>
+
           </div>
         </div>
-      </div>
+        <div id='upload'> </div>
+
+        <div class="row">
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-success" onclick="add_upload();"> Add another picture</button>
+          </div>
+          <div class="col-sm-1 nopadding">
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="" value ="Get Quotation"/>
+            </div>
+          </div>
+        </div>
+
+      </form>
 
 
       <!--end form-->
@@ -182,7 +188,7 @@
 
 
   <!--quotation & Payment Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="quotationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -202,6 +208,7 @@
               </tr>
             </thead>
             <tbody>
+
               <tr>
                 <td>smiley.png</td>
                 <td>102 x 152</td>
