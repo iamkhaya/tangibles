@@ -137,7 +137,6 @@
 
 
       <!--start form-->
-
       <form action="{% url 'quote' %}" method="post">
         {% csrf_token %}
         <div id="upload_row">
@@ -147,40 +146,33 @@
                 <input type="file" class="form-control" id="Upload" name="Upload[]" value="">
               </div>
             </div>
-
             <div class="col-sm-4 nopadding">
               <div class="form-group">
-                <input type="number" class="form-control" id="Quantity" name="Quantity[]" value="" placeholder="Quantity">
+                <input type="number" class="form-control" id="Quantity" name="Quantity[]" value="1" placeholder="Quantity">
               </div>
             </div>
             <div class="col-sm-4 nopadding">
-              <select class="custom-select" id="inputGroupSelect01"  name="Sizes[]">
-             <option selected>Photo Size (mm)</option>
-             {% for item in price_list.all %}
-                <option value="{{ item.id }}">{{ item.length }} x {{ item.width }}</option>
-             {% endfor %}
-           </select>
+              <select class="custom-select" id="Size" name="Sizes[]">
+                 <option selected>Photo Size (mm)</option>
+                 {% for item in price_list.all %}
+                    <option value="{{ item.id }}">{{ item.length }} x {{ item.width }}</option>
+                 {% endfor %}
+               </select>
             </div>
-
-
           </div>
         </div>
         <div id='upload'> </div>
-
         <div class="row">
           <div class="col-sm-2">
             <button type="button" class="btn btn-success" onclick="add_upload();"> Add another picture</button>
           </div>
           <div class="col-sm-1 nopadding">
             <div class="form-group">
-              <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="" value ="Get Quotation"/>
+              <input type="button" class="btn btn-primary" onclick="calculate_quote({{ catalogue  }});" value="Get Quotation" />
             </div>
           </div>
         </div>
-
       </form>
-
-
       <!--end form-->
 
     </div>
@@ -192,7 +184,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Quotation</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -207,41 +199,9 @@
                 <th scope="col">Cost</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="quotation-modal">
 
-              <tr>
-                <td>smiley.png</td>
-                <td>102 x 152</td>
-                <td>2</td>
-                <td>R 35.00</td>
 
-              </tr>
-              <tr>
-                <td>Mark.png</td>
-                <td>102 x 152</td>
-                <td>1</td>
-                <td>R 45.00</td>
-
-              </tr>
-              <tr>
-                <td>house.jpeg</td>
-                <td>102 x 152</td>
-                <td>7</td>
-                <td>R 87.00</td>
-
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><b>Shipping</b></td>
-                <td>R 50.00</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><b>Total</b></td>
-                <td><b>R 400.00</b></td>
-              </tr>
             </tbody>
           </table>
 
