@@ -26,55 +26,19 @@ function remove_education_fields(div_id) {
   $(".removeclass" + div_id).remove();
 }
 
-function calculate_quote(price_list) {
-  pl = price_list;
-  //Add to table
-  var target = document.getElementById("quotation-modal");
-  quote = document.querySelectorAll("div#actual");
-  quotation = [];
+function clear_quote(){
+  document.getElementById("quotation-modal").innerHTML = "";
+}
 
-  quote.forEach(function(currentValue, currentIndex, listObj) {
-    var inputs = currentValue.getElementsByTagName("input");
-    quantity = inputs.Quantity.valueAsNumber;
-    upload = inputs.Upload.value;
+function display_order_form(){
+    // display the form
+    var order_form = document.getElementById("order-form");
+    order_form.setAttribute("style", "display: block;")
 
-    var size_selection = currentValue.getElementsByTagName("select");
-    size_id = size_selection.Size.value;
-
-    quote_line = {
-      upload: upload,
-      quantity: quantity,
-      size: size_selection.Size.selectedOptions[0].text,
-      unit_cost: parseFloat(pl[size_id])
-    };
-    quotation.push(quote_line);
-  });
+    // hide the quote_button
+    // display the form
+    var confirm_buttons = document.getElementById("quote_buttons");
+    confirm_buttons.setAttribute("style", "display: none;")
 
 
-  quotation.forEach(function(item) {
-    var quotation_row = document.createElement("tr");
-    quotation_row.innerHTML =
-      "<td>" +
-      item.upload +
-      "</td><td>" +
-      item.size +
-      "</td><td>" +
-      item.quantity +
-      "</td><td>" +
-      item.quantity * item.unit_cost +
-      "</td>";
-    target.appendChild(quotation_row);
-  });
-
-  var shipping_total = document.createElement("tr");
-  shipping_total.innerHTML =
-    "<td></td><td></td><td><b>Shipping</b></td><td>R 50.00</td>";
-  target.appendChild(shipping_total);
-
-
-
-  var total = document.createElement("tr");
-  total.innerHTML = "<td></td><td></td><td><b>Total</b></td><td><b>R 400.00</b></td>";
-  target.appendChild(total);
-    $("#quotationModal").modal();
 }

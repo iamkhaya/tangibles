@@ -8,8 +8,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Printona Tangibles - Hold on to your memories</title>
+  <title>pikrunch - hold on to your memories</title>
   {% load static %}
+  {% load crispy_forms_tags %}
+
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" type="text/css" href="{% static 'printona/bootstrap.css' %}" />
 
@@ -56,7 +58,7 @@
   <!-- Header -->
   <header class="masthead d-flex">
     <div class="container text-center my-auto">
-      <h1 class="mb-1">Printona Tangibles</h1>
+      <h1 class="mb-1">picrunch</h1>
       <h3 class="mb-5">
           <em>We print your photos and mail them to you.</em>
         </h3>
@@ -118,8 +120,8 @@
   <!-- Callout -->
   <section class="callout">
     <div class="container text-center">
-      <h3 class="mx-auto mb-5">We do <em>one</em> thing and we do it well!</h3>
-      <h1>Print your photos and mail them to you!</h1>
+      <!-- <h4 class="mx-auto mb-5">We do <em>one</em> thing and we do it well!</h4> -->
+      <h1>We print your photos and mail them to you!</h1>
       <p class="lead mb-5">No Sign up. No Hidden Costs. No Bullshit.</p>
       <a class="js-scroll-trigger btn btn-primary btn-xl" href="#quotation">Get started</a>
     </div>
@@ -131,88 +133,18 @@
     <div class="container">
       <div class="content-section-heading text-center">
         <h3 class="text-secondary mb-0">quotation</h3>
-        <h2 class="mb-5">Get a quotation</h2>
+        <h2 class="mb-5">Upload your photos</h2>
       </div>
 
-
-
       <!--start form-->
-      <form action="{% url 'quote' %}" method="post">
-        {% csrf_token %}
-        <div id="upload_row">
-          <div class="row" id="actual">
-            <div class="col-sm-3">
-              <div class="form-group">
-                <input type="file" class="form-control" id="Upload" name="Upload[]" value="">
-              </div>
-            </div>
-            <div class="col-sm-4 nopadding">
-              <div class="form-group">
-                <input type="number" class="form-control" id="Quantity" name="Quantity[]" value="1" placeholder="Quantity">
-              </div>
-            </div>
-            <div class="col-sm-4 nopadding">
-              <select class="custom-select" id="Size" name="Sizes[]">
-                 <option selected>Photo Size (mm)</option>
-                 {% for item in price_list.all %}
-                    <option value="{{ item.id }}">{{ item.length }} x {{ item.width }}</option>
-                 {% endfor %}
-               </select>
-            </div>
-          </div>
-        </div>
-        <div id='upload'> </div>
-        <div class="row">
-          <div class="col-sm-2">
-            <button type="button" class="btn btn-success" onclick="add_upload();"> Add another picture</button>
-          </div>
-          <div class="col-sm-1 nopadding">
-            <div class="form-group">
-              <input type="button" class="btn btn-primary" onclick="calculate_quote({{ catalogue  }});" value="Get Quotation" />
-            </div>
-          </div>
-        </div>
+      <form action="{% url 'quote' %}" method="post" enctype="multipart/form-data">
+        {% crispy upload_photos_form upload_photos_form.helper %}
       </form>
       <!--end form-->
 
     </div>
   </section>
 
-
-  <!--quotation & Payment Modal -->
-  <div class="modal fade" id="quotationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Quotation</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        <div class="modal-body">
-          <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Photo</th>
-                <th scope="col">Size</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Cost</th>
-              </tr>
-            </thead>
-            <tbody id="quotation-modal">
-
-
-            </tbody>
-          </table>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark" data-dismiss="modal">Back to Quotation</button>
-          <button type="button" class="btn btn-primary">Continue to Payment</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Call to Action -->
   <section class="content-section bg-primary text-white">
@@ -222,16 +154,6 @@
       <a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a>
       <a href="#" class="btn btn-xl btn-dark">Look at Me!</a>
     </div>
-  </section>
-
-  <!-- Map -->
-  <section id="contact" class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6632.252058664938!2d18.4556908!3d-33.7832435!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dccf56b1c6fda99%3A0x3d115c763d84f8e9!2sPrintona+Tangibles!5e0!3m2!1sen!2sza!4v1515863282176" width="100%"
-      height="100%" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-    <br/>
-    <small>
-        <a href="https://goo.gl/maps/ZTNvVjXMorx"></a>
-      </small>
   </section>
 
   <!-- Footer -->
@@ -254,7 +176,7 @@
             </a>
         </li>
       </ul>
-      <p class="text-muted small mb-0">Copyright &copy; Your Website 2017</p>
+      <p class="text-muted small mb-0">Copyright &copy; Printona Tangibles 2017</p>
     </div>
   </footer>
 

@@ -26,11 +26,13 @@ SECRET_KEY = 'ucm#mm1co&6hj^lgd$*+ij&y#$tll5r&kkco-#qh*m$sr1b+jy'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
     'printona.apps.PrintonaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
@@ -123,3 +126,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "printona/media")
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+]

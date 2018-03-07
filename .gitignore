@@ -1,1 +1,6 @@
 venv/
+*/*.pyc
+*.pyc
+*.egg-info
+*/__pycache__/*
+media/
