@@ -9,8 +9,7 @@
   <meta name="author" content="">
 
   <title>pikrunch - hold on to your memories</title>
-  {% load static %}
-  {% load crispy_forms_tags %}
+  {% load static %} {% load crispy_forms_tags %}
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" type="text/css" href="{% static 'printona/bootstrap.css' %}" />
@@ -136,13 +135,58 @@
         <h2 class="mb-5">Upload your photos</h2>
       </div>
 
-      <!--start form-->
-      <form action="{% url 'quote' %}" method="post" enctype="multipart/form-data">
-        {% crispy upload_photos_form upload_photos_form.helper %}
-      </form>
-      <!--end form-->
+      <div class="container" id="product-section">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div id="list"></div>
+              <label class="btn btn-block btn-info btn-sm" id="uplo">
+                Upload Picture <input type="file" id="files" style="display: none;">
+              </label>
+            </div>
+          </div>
 
-    </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <select class="custom-select form-control form-control-sm" id="Size" name="sizes">
+                <option selected>Photo Size (mm)</option>
+                  {% for item in price_list.all %}
+                <option value="{{ item.id }}">{{ item.length }} x {{ item.width }}</option>
+                  {% endfor %}
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input type="number" class="form-control form-control-sm" id="Quantity" name="quantities" placeholder="Quantity">
+            </div>
+
+            <div class="form-group">
+              <button type="button" class="btn btn-danger btn-md btn-block"> Discard Picture</button>
+            </div>
+          </div>
+</div>
+
+</div>
+
+
+        </div> <!--end row -->
+      </div> <!--end product section div -->
+
+
+
+    </div><!--close container>
+
+
+    <!--start form-->
+    <!-- <form action="{% url 'quote' %}" method="post" enctype="multipart/form-data">
+        {% crispy upload_photos_form upload_photos_form.helper %}
+      </form> -->
+    <!--end form-->
+
+
   </section>
 
 
@@ -195,6 +239,26 @@
   <!-- Custom scripts for this template -->
   <script src="{% static 'printona/stylish-portfolio.js' %}"></script>
   <script src="{% static 'printona/accordian.js' %}"></script>
+
+  <script type="text/javascript">
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+    function handleFileSelect(evt) {
+      var files = evt.target.files;
+      var f = files[0];
+      var reader = new FileReader();
+
+      reader.onload = (function(theFile) {
+        return function(e) {
+          document.getElementById('list').innerHTML = ['<img src="', e.target.result, '" title="', theFile.name, '" class="img-thumbnail" />'].join('');
+          document.getElementById('uplo').setAttribute("style", "display:none;");
+        };
+      })(f);
+
+      reader.readAsDataURL(f);
+    }
+  </script>
+
 
 </body>
 

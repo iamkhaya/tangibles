@@ -19,7 +19,7 @@ setup(
     license='BSD License',  # example license
     description='A simple Django app to conduct Web-based polls.',
     long_description='readme',
-    url='https://www.example.com/',
+    url='https://www.pikrunch.com/',
     author='Your Name',
     author_email='yourname@example.com',
     requires=install_requires,
